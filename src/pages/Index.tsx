@@ -4,34 +4,38 @@ import { ServiceCard } from "@/components/service-card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
-import { Search, Calendar, Users } from "lucide-react";
+import { Search } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-white to-gray-50">
       <Header />
       
       <section className="section-padding pt-32">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="space-y-8"
             >
-              <h1 className="text-5xl font-bold leading-tight text-gray-900">
+              <h1 className="text-6xl font-bold leading-tight text-gray-900">
                 Hotel, car &<br />experiences
               </h1>
               <p className="text-lg text-gray-600 max-w-lg">
                 Accompanying us, you have a trip full of experiences. With our services,
                 booking accommodation, resort villas, hotels becomes easy and convenient.
               </p>
-              <Button size="lg" className="bg-[#4F46E5] hover:bg-[#4338CA]">
+              <Button 
+                size="lg" 
+                className="bg-[#4F46E5] hover:bg-[#4338CA] rounded-full px-8"
+              >
                 Start your search
               </Button>
 
               <div className="flex gap-8 pt-4">
-                <button className="flex items-center gap-2 font-medium text-gray-900 border-b-2 border-gray-900">
+                <button className="flex items-center gap-2 font-medium text-[#4F46E5]">
+                  <div className="w-2 h-2 bg-[#4F46E5] rounded-full"></div>
                   Stays
                 </button>
                 <button className="text-gray-500 hover:text-gray-900">
@@ -45,52 +49,42 @@ const Index = () => {
                 </button>
               </div>
 
-              <div className="bg-white shadow-lg rounded-2xl p-4 space-y-4">
-                <div className="grid md:grid-cols-3 gap-4">
+              <div className="bg-white shadow-lg rounded-2xl p-6">
+                <div className="grid gap-6">
                   <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm font-medium text-gray-600">
-                      <Search className="w-4 h-4" />
-                      Location
-                    </label>
+                    <div className="flex items-center gap-2">
+                      <Search className="w-5 h-5 text-gray-400" />
+                      <span className="font-medium">Location</span>
+                    </div>
                     <Input 
                       placeholder="Where are you going?" 
-                      className="border-0 bg-gray-50 focus-visible:ring-0"
+                      className="border-0 bg-gray-50 focus-visible:ring-0 text-lg placeholder:text-gray-400"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm font-medium text-gray-600">
-                      <Calendar className="w-4 h-4" />
-                      Check in - Check out
-                    </label>
-                    <Input 
-                      placeholder="Feb 06 - Feb 23" 
-                      className="border-0 bg-gray-50 focus-visible:ring-0"
-                    />
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <div className="font-medium">Feb 06 - Feb 23</div>
+                      <div className="text-sm text-gray-500">Check in - Check out</div>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="font-medium">4 Guests</div>
+                      <div className="text-sm text-gray-500">Guests</div>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm font-medium text-gray-600">
-                      <Users className="w-4 h-4" />
-                      Guests
-                    </label>
-                    <Input 
-                      placeholder="4 Guests" 
-                      className="border-0 bg-gray-50 focus-visible:ring-0"
-                    />
-                  </div>
+                  <Button className="w-full bg-[#4F46E5] hover:bg-[#4338CA] rounded-xl h-14">
+                    <Search className="w-5 h-5 mr-2" />
+                    Search
+                  </Button>
                 </div>
-                <Button className="w-full bg-[#4F46E5] hover:bg-[#4338CA]">
-                  <Search className="w-4 h-4 mr-2" />
-                  Search
-                </Button>
               </div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="relative hidden lg:block"
+              className="relative hidden lg:grid grid-cols-5 gap-4 h-[600px]"
             >
-              <div className="grid grid-cols-2 gap-4">
+              <div className="col-span-3 space-y-4">
                 <img
                   src="/images/hero-1.jpg"
                   alt="Luxury resort"
@@ -99,19 +93,22 @@ const Index = () => {
                 <img
                   src="/images/hero-2.jpg"
                   alt="Beautiful destination"
-                  className="rounded-2xl w-full h-[300px] object-cover mt-8"
+                  className="rounded-2xl w-full h-[280px] object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-lg">
-                <div className="text-sm font-medium text-gray-600">Next trip</div>
-                <div className="text-lg font-semibold text-gray-900">Malaysia, Wonderful!</div>
+              <div className="col-span-2">
+                <img
+                  src="/images/hero-3.jpg"
+                  alt="Scenic view"
+                  className="rounded-2xl w-full h-full object-cover"
+                />
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Our Services</h2>
